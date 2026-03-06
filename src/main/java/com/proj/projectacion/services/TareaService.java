@@ -5,6 +5,8 @@ import com.proj.projectacion.models.TareaModel;
 import com.proj.projectacion.repositories.TareaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TareaService {
 
@@ -27,5 +29,13 @@ public class TareaService {
         }).start();
 
         return tareaRepository.save(tarea);
+    }
+
+    public List<TareaModel> obtenerTareas(){
+        return tareaRepository.findAll();
+    }
+
+    public void eliminarTareas(String id){
+        tareaRepository.deleteById(id);
     }
 }
